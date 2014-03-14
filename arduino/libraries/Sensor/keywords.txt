@@ -1,0 +1,18 @@
+#######################################
+# Syntax Coloring Map For Sensors
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Sensor	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+# Sensor
+read	KEYWORD2
+getName	KEYWORD2
+isNeedRead	KEYWORD2
