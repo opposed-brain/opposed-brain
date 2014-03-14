@@ -9,6 +9,7 @@
 Sensor	KEYWORD1
 DigitalSensor   KEYWORD1
 TemperatureSensorLM35	KEYWORD1
+SensorsController   KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -18,3 +19,8 @@ TemperatureSensorLM35	KEYWORD1
 read	KEYWORD2
 getName	KEYWORD2
 isNeedRead	KEYWORD2
+
+# SensorsController
+addSensor   KEYWORD2
+process KEYWORD2
+setPrinter  KEYWORD2
