@@ -35,7 +35,7 @@ class Sensor {
   private:
     char * name;
     int interval;
-    int timeToRead;
+    unsigned long timeToRead;
 
     /**
       Reads several times from func and returns average value
