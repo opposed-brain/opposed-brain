@@ -8,7 +8,7 @@
 */
 class SensorsController {
   public:
-    SensorsController();
+    SensorsController(byte);
     virtual ~SensorsController();
     // Stores sensor
     void addSensor(Sensor *);
@@ -17,8 +17,9 @@ class SensorsController {
     void setPrinter(Print &);
 
   private:
-    Sensor * sensors[10];
+    Sensor ** sensors;
     byte countSensors;
+    byte maxCount;
     Print * p;
 };
 

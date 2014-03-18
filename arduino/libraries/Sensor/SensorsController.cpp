@@ -1,18 +1,27 @@
 #include "SensorsController.h"
 
-SensorsController::SensorsController()
-{
-    countSensors = 0;
-    p = NULL;
+SensorsController::SensorsController(byte maxCount) {
+    this->sensors = new Sensor*[maxCount];
+    this->maxCount = maxCount;
+    this->countSensors = 0;
+    this->p = NULL;
 }
 
-SensorsController::~SensorsController() {}
+SensorsController::~SensorsController() {
+    delete [] this->sensors;
+}
 
-void SensorsController::addSensor(Sensor * newSensor){
-  sensors[countSensors++] = newSensor;
-  if(p != NULL) {
-    this->p->print("Sensor detect ");
-    this->p->println(newSensor->getName());
+void SensorsController::addSensor(Sensor * newSensor) {
+  if (this->countSensors < this->maxCount) {
+    sensors[this->countSensors++] = newSensor;
+    if(p != NULL) {
+      this->p->print("NS");
+      this->p->println(newSensor->getName());
+    }
+  } else {
+    if(p != NULL) {
+      this->p->println("ER03");
+    }
   }
 }
 
