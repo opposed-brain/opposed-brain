@@ -13,6 +13,7 @@
 // Base class for sensors
 class Sensor {
   public:
+    Sensor();
     /**
       pin - arduino pin that sensor connected;
       name - name of sensor;

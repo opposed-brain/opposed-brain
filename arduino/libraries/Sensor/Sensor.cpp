@@ -1,5 +1,7 @@
 #include "Sensor.h"
 
+Sensor::Sensor() {}
+
 Sensor::Sensor(byte pin, char * name, int interval) {
   this->pin = pin;
   this->name = name;
