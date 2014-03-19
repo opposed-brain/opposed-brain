@@ -6,6 +6,7 @@
 class DigitalSensor : public Sensor
 {
   public:
+    DigitalSensor(byte pin, char * name);
     DigitalSensor(byte pin, char * name, int interval);
     virtual ~DigitalSensor();
     virtual int read();
