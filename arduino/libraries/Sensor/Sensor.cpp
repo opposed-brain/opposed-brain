@@ -2,9 +2,10 @@
 
 Sensor::Sensor() {}
 
-Sensor::Sensor(byte pin, char * name, int interval) {
+Sensor::Sensor(byte pin, const char * name, int interval) {
   this->pin = pin;
-  this->name = name;
+  this->name = new char[strlen(name) + 1];
+  strcpy(this->name, name);
   this->interval = interval;
   this->timeToRead = 0;
   pinMode(pin, INPUT);

@@ -3,10 +3,9 @@
 
 #include "Sensor.h"
 
-class TemperatureSensorLM35 : public Sensor
-{
+class TemperatureSensorLM35 : public Sensor {
   public:
-    TemperatureSensorLM35(byte pin, char * name, int interval);
+    TemperatureSensorLM35(byte pin, const char * name, int interval);
     virtual int read();
 
   private:

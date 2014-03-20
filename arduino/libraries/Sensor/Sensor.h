@@ -19,7 +19,7 @@ class Sensor {
       name - name of sensor;
       delay - interval for reading and sending data
     */
-    Sensor(byte, char *, int = 1000);
+    Sensor(byte, const char *, int = 1000);
     virtual ~Sensor();
     /**
       analogRead uses by default

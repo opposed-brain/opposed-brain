@@ -1,8 +1,8 @@
 #include "DigitalSensor.h"
 
-DigitalSensor::DigitalSensor(byte pin, char * name) : Sensor(pin, name) {}
+DigitalSensor::DigitalSensor(byte pin, const char * name) : Sensor(pin, name) {}
 
-DigitalSensor::DigitalSensor(byte pin, char * name, int interval) : Sensor(pin, name, interval) {}
+DigitalSensor::DigitalSensor(byte pin, const char * name, int interval) : Sensor(pin, name, interval) {}
 
 DigitalSensor::~DigitalSensor() {}
 

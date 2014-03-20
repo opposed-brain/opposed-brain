@@ -3,11 +3,10 @@
 
 #include "Sensor.h"
 
-class DigitalSensor : public Sensor
-{
+class DigitalSensor : public Sensor {
   public:
-    DigitalSensor(byte pin, char * name);
-    DigitalSensor(byte pin, char * name, int interval);
+    DigitalSensor(byte pin, const char * name);
+    DigitalSensor(byte pin, const char * name, int interval);
     virtual ~DigitalSensor();
     virtual int read();
 };

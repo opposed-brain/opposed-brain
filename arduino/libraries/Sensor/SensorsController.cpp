@@ -14,12 +14,12 @@ SensorsController::~SensorsController() {
 void SensorsController::addSensor(Sensor * newSensor) {
   if (this->countSensors < this->maxCount) {
     sensors[this->countSensors++] = newSensor;
-    if(p != NULL) {
+    if(NULL != p) {
       this->p->print("NS");
       this->p->println(newSensor->getName());
     }
   } else {
-    if(p != NULL) {
+    if(NULL != p) {
       this->p->println("ER03");
     }
   }
@@ -27,7 +27,7 @@ void SensorsController::addSensor(Sensor * newSensor) {
 
 void SensorsController::process() {
   // if printer didn't setup
-  if(p == NULL) {
+  if(NULL == p) {
     return;
   }
   for(byte i = 0; i < countSensors; i++) {
@@ -38,6 +38,6 @@ void SensorsController::process() {
   }
 }
 
-void SensorsController::setPrinter(Print & printer){
+void SensorsController::setPrinter(Print & printer) {
     this->p = & printer;
 }
