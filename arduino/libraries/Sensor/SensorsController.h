@@ -13,6 +13,10 @@ class SensorsController {
     // Stores sensor
     void addSensor(Sensor *);
     void process();
+
+    // Transmits data from the sensor
+    void transmitPackage(const char *, const int);
+
     // Set the printer that will be receive data
     void setPrinter(Print &);
 

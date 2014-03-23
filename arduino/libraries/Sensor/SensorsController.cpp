@@ -14,30 +14,27 @@ SensorsController::~SensorsController() {
 void SensorsController::addSensor(Sensor * newSensor) {
   if (this->countSensors < this->maxCount) {
     sensors[this->countSensors++] = newSensor;
-    if(NULL != p) {
-      this->p->print("NS");
-      this->p->println(newSensor->getName());
-    }
+    this->transmitPackage("NS", this->countSensors);
   } else {
-    if(NULL != p) {
-      this->p->println("ER03");
-    }
+    this->transmitPackage("ER", 3);
   }
 }
 
 void SensorsController::process() {
-  // if printer didn't setup
-  if(NULL == p) {
-    return;
-  }
   for(byte i = 0; i < countSensors; i++) {
     if(sensors[i]->isNeedRead()) {
-      p->print(sensors[i]->getName());
-      p->println(sensors[i]->read());
+      this->transmitPackage(sensors[i]->getName(), sensors[i]->read());
     }
   }
 }
 
+void SensorsController::transmitPackage(const char * name, const int value) {
+  if(NULL != p) {
+    char package [] = {0xDE, 0xAD, name[0], name[1], value >> 8, value & 0xFF, 0xFE, 0xED};
+    p->write(package);
+  }
+}
+
 void SensorsController::setPrinter(Print & printer) {
-    this->p = & printer;
+  this->p = & printer;
 }
